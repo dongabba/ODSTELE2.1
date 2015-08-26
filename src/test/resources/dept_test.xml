@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="roleDepartmentTests_test">
+		<parameter name="username" value="dept_test" />
+		<parameter name="password" value="dept_test" />
+		<parameter name="role" value="Департамент общий" />
+		<test name = "UserLoginAsDepartment">
+		<classes>
+			<class name="ru.fors.odstele.tests.LoginTests"/>
+		</classes>
+		</test>
+		<test name = "ReportsTestByDepartment">
+		<classes>
+			<class name="ru.fors.odstele.tests.ReportsTest"/>
+		</classes>
+		</test>
+</suite>
