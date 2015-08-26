@@ -10,6 +10,7 @@ import ru.yandex.qatools.allure.annotations.Attachment;
 
 public class TestListener implements ITestListener {
 
+	TestBase tb;
 	@Override
 	public void onFinish(ITestContext arg0) {
 		// TODO Auto-generated method stub
@@ -29,6 +30,7 @@ public class TestListener implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult arg0) {
 		takeAttach();
+		tb.close();
 		
 	}
 
@@ -50,7 +52,7 @@ public class TestListener implements ITestListener {
 	
 	@Attachment("ScreenShot")
 	public byte[] takeAttach() {
-		return ((TakesScreenshot) TestBase.getWebDriver()).getScreenshotAs(OutputType.BYTES);
+		return ((TakesScreenshot) tb.getWebDriver()).getScreenshotAs(OutputType.BYTES);
 	}
 
 }

@@ -12,6 +12,13 @@
 		<test name = "ReportsTestByDepartment">
 		<classes>
 			<class name="ru.fors.odstele.tests.ReportsTest"/>
+			<methods>
+        		<exclude name="reportSnowRemovalAnalysisCust"/>
+        		<exclude name="reportSnowRemovalDetailCust"/>
+        		<exclude name="reportViolationCust"/>
+        		<exclude name="reportStatsMoveCust"/>
+        		<exclude name="reportTrafficLineControlCust"/>
+      		</methods>
 		</classes>
 		</test>
 </suite>

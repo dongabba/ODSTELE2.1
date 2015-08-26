@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="roleContractorTests_test">
-		<test name = "UserLoginAsContractor">
 		<parameter name="username" value="aga_test" />
 		<parameter name="password" value="aga_test" />
 		<parameter name="role" value="Подрядчик по содержанию ОДХ" />
+		<test name = "UserLoginAsContractor">
 		<classes>
 			<class name="ru.fors.odstele.tests.LoginTests"/>
 		</classes>
-		</test>>
+		</test>
+		<test name = "ReportsTestByContractor">
+		<classes>
+			<class name="ru.fors.odstele.tests.ReportsTest"/>
+			<methods>
+        		<exclude name="reportSnowRemovalAnalysisCust"/>
+        		<exclude name="reportSnowRemovalDetailCust"/>
+        		<exclude name="reportViolationCust"/>
+        		<exclude name="reportStatsMoveCust"/>
+        		<exclude name="reportTrafficLineControlCust"/>
+      		</methods>
+		</classes>
+		</test>
 </suite>

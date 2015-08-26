@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="roleCustomerTests_test">
-		<test name = "UserLoginAsCustomer">
 		<parameter name="username" value="ad_svao_test" />
 		<parameter name="password" value="ad_svao_test" />
 		<parameter name="role" value="Заказчик по содержанию ОДХ" />
+		<test name = "UserLoginAsCustomer">
 		<classes>
 			<class name="ru.fors.odstele.tests.LoginTests"/>
 		</classes>
-		</test>>
+		</test>
+		<test name = "ReportsTestByCustomer">
+		<classes>
+			<class name="ru.fors.odstele.tests.ReportsTest"/>
+			<methods>
+        		<exclude name="reportSnowRemovalAnalysis"/>
+        		<exclude name="reportSnowRemovalDetail"/>
+        		<exclude name="reportViolation"/>
+        		<exclude name="reportStatsMove"/>
+        		<exclude name="reportTrafficLineControl"/>
+      		</methods>
+		</classes>
+		</test>
 </suite>

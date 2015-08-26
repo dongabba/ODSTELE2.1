@@ -16,6 +16,7 @@ public class ReportsPage extends Page{
 																			// шапке
 																			// отчета
 	By reportCarAtWorkLocator = By.linkText("Техника в работе");
+	By reportCarOutLocacator = By.linkText("Сводка выхода техники на ОДХ");
 	By reportCarAtWorkPeriodLocator = By.linkText("Техника в работе за период");
 	By reportCarAtWorkAnalysisLocator = By.linkText("Анализ работы техники");
 	By reportCarOutPeriodLocator = By.linkText("Выход техники за период");
@@ -63,7 +64,6 @@ public class ReportsPage extends Page{
 																					// сводного
 																					// отчета
 
-	private WebDriver driver;
 
 	public ReportsPage(WebDriver driver) {
 		super(driver);
@@ -192,6 +192,11 @@ public class ReportsPage extends Page{
 		waitForAjaxIndicatorOff(driver, 6);
 		driver.findElement(selectCustomerButton).click();
 		waitForAjaxIndicatorOff(driver, 6);
+	}
+
+	public void reportCarOutTestOpen() {
+		click(reportCarOutLocacator);
+		
 	}
 
 }
