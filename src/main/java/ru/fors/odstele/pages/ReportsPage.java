@@ -63,6 +63,22 @@ public class ReportsPage extends Page{
 																					// для
 																					// сводного
 																					// отчета
+	By reportGpsSignalStatWstLocator = By.linkText("Статистика получения показаний от мобильных устройств"); //Отходы
+	By reportGarbageTrackMoveLocator = By.linkText("Статистика перемещения СТС без назначения на маршрут"); //Отходы
+	By carAppearanceYardReportLocator = By.linkText("Выход техники на дворовые территории"); //Дворы
+	By reportYardCleanState = By.linkText("Состояние уборки"); //Дворы
+	By reportGpsSignalStatYardLocator = By.linkText("Статистика получения показаний от мобильных устройств"); //Дворы
+	By reportStatMoveYardLocator = By.linkText("Статистика перемещения техники"); //Дворы
+	By reportGpsSignalStatOznLocator = By.linkText("Статистика получения показаний от мобильных устройств"); //ОЗН
+	By reportOznWorksCompletionLocator = By.linkText("Выполнение основных видов работ по содержанию объектов озеленения"); //ОЗН
+	By reportCurrentStateOznLocator = By.linkText("Текущее состояние объектов озеленения"); //ОЗН
+	By reportCarOutSummaryOznLocator = By.linkText("Сводный отчет по выходу техники, задействованной на объектах озеленения"); //ОЗН
+	By reportGpsSignal4ProviderLocator = By.linkText("Статистика переданных показаний с мобильных устройств"); //поставщик
+	By odhContainerLocator = By.xpath("//div[1]/h4/span"); //контейнер ОДХ
+	By wstContainerLocator = By.xpath("//div[2]/h4/span"); //контейнер Отходы
+	By yardContainerLocator = By.xpath("//div[3]/h4/span"); //контейнер Дворы
+	By oznContainerLocator = By.xpath("//div[4]/h4/span"); //контейнер ОЗН
+	By allContainerLocator = By.xpath("//div[5]/h4/span"); //контейнер Общее
 
 
 	public ReportsPage(WebDriver driver) {
@@ -193,10 +209,84 @@ public class ReportsPage extends Page{
 		driver.findElement(selectCustomerButton).click();
 		waitForAjaxIndicatorOff(driver, 6);
 	}
-
+	@Step("Открываем отчет \"Сводка выхода техники на ОДХ\"")
 	public void reportCarOutTestOpen() {
 		click(reportCarOutLocacator);
 		
 	}
-
+	@Step("Кликаем по контейнеру \"Отходы\"")
+	public void clickWstContainer(){
+		click(wstContainerLocator);
+	}
+	
+	@Step("Кликаем по контейнеру \"Дворы\"")
+	public void clickYardContainer(){
+		click(yardContainerLocator);
+	}
+	
+	@Step("Кликаем по контейнеру \"ОЗН\"")
+	public void clickOznContainer(){
+		click(oznContainerLocator);
+	}
+	
+	@Step("Кликаем по контейнеру \"ОДХ\"")
+	public void clickOdhContainer(){
+		click(odhContainerLocator);
+	}
+	
+	@Step("Кликаем по контейнеру \"Общее\"")
+	public void clickAllContainer(){
+		click(allContainerLocator);
+	}
+	
+	@Step("Открываем отчет \"Статистика получения показаний от мобильных устройств по Отходам\"")
+	public void reportGpsSignalStatWstOpen() {
+		click(reportGpsSignalStatWstLocator);
+	}
+	
+	@Step("Открываем отчет \"Статистика перемещения СТС без назначения на маршрут\"")
+	public void reportGarbageTrackMoveOpen() {
+		click(reportGarbageTrackMoveLocator);
+	}
+	
+	@Step("Открываем отчет \"Выход техники на дворовые территории\"")
+	public void carAppearanceYardReportOpen() {
+		click(carAppearanceYardReportLocator);
+	}
+	
+	@Step("Открываем отчет \"Состояние уборки\"")
+	public void reportYardCleanOpen() {
+		click(reportYardCleanState);
+	}
+	
+	@Step("Открываем отчет \"Статистика получения показаний от мобильных устройств по Дворам\"")
+	public void reportGpsSignalStatYardOpen() {
+		click(reportGpsSignalStatYardLocator);
+	}
+	
+	@Step("Открываем отчет \"Статистика перемещения техники\"")
+	public void reportStatMoveYardOpen() {
+		click(reportStatMoveYardLocator);
+	}
+	
+	@Step("Открываем отчет \"Статистика получения показаний от мобильных устройств по ОЗН\"")
+	public void reportGpsSignalStatOznOpen() {
+		click(reportGpsSignalStatOznLocator);
+	}
+	@Step("Открываем отчет \"Выполнение основных видов работ по содержанию объектов озеленения\"")
+	public void reportOznWorksCompletion() {
+		click(reportOznWorksCompletionLocator);
+	}
+	@Step("Открываем отчет \"Текущее состояние объектов озеленения\"")
+	public void reportCurrentStateOznOpen() {
+		click(reportCurrentStateOznLocator);
+	}
+	@Step("Открываем отчет \"Сводный отчет по выходу техники, задействованной на объектах озеленения\"")
+	public void reportCarOutSummaryOznOpen() {
+		click(reportCarOutSummaryOznLocator);
+	}
+	@Step("Открываем отчет \"Статистика переданных показаний с мобильных устройств\"")
+	public void reportGpsSignal4ProviderOpen() {
+		click(reportGpsSignal4ProviderLocator);
+	}
 }

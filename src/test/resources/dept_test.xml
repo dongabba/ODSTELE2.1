@@ -9,7 +9,7 @@
 			<class name="ru.fors.odstele.tests.LoginTests"/>
 		</classes>
 		</test>
-		<test name = "ReportsTestByDepartment">
+		<test name = "ReportsOdhTestByDepartment">
 		<classes>
 			<class name="ru.fors.odstele.tests.ReportsTest"/>
 			<methods>
@@ -18,6 +18,50 @@
         		<exclude name="reportViolationCust"/>
         		<exclude name="reportStatsMoveCust"/>
         		<exclude name="reportTrafficLineControlCust"/>
+        		<exclude name="reportGpsSignalStatWst"/>
+        		<exclude name="reportGarbageTrackMove"/>
+        		<exclude name="carAppearanceYardReport"/>
+        		<exclude name="reportYardClean"/>
+        		<exclude name="reportGpsSignalStatYard"/>
+        		<exclude name="reportStatMoveYard"/>
+        		<exclude name="reportGpsSignalStatOzn"/>
+        		<exclude name="reportOznWorksCompletion"/>
+        		<exclude name="reportCurrentStateOzn"/>
+        		<exclude name="reportCarOutSummaryOzn"/>
+      		</methods>
+		</classes>
+		</test>
+		<test name = "ReportsWstTestByDepartment">
+		<classes>
+			<class name="ru.fors.odstele.tests.ReportsTest"/>
+			<methods>
+        		<exclude name=".*" />
+        		<include name="reportGpsSignalStatWst"/>
+        		<include name="reportGarbageTrackMove"/>
+      		</methods>
+		</classes>
+		</test>
+		<test name = "ReportsYardTestByDepartment">
+		<classes>
+			<class name="ru.fors.odstele.tests.ReportsTest"/>
+			<methods>
+        		<exclude name=".*" />
+        		<include name="carAppearanceYardReport"/>
+        		<include name="reportYardClean"/>
+        		<include name="reportGpsSignalStatYard"/>
+        		<include name="reportStatMoveYard"/>
+      		</methods>
+		</classes>
+		</test>
+		<test name = "ReportsOznTestByDepartment">
+		<classes>
+			<class name="ru.fors.odstele.tests.ReportsTest"/>
+			<methods>
+        		<exclude name=".*" />
+        		<include name="reportGpsSignalStatOzn"/>
+        		<include name="reportOznWorksCompletion"/>
+        		<include name="reportCurrentStateOzn"/>
+        		<include name="reportCarOutSummaryOzn"/>
       		</methods>
 		</classes>
 		</test>

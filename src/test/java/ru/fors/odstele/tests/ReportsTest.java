@@ -8,7 +8,9 @@ import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -21,7 +23,7 @@ public class ReportsTest extends TestBase {
 
 
 
-	@BeforeClass
+	@BeforeTest
 	@Parameters({"username", "password"})
 	public void goToReportsPage(String username, String password){
 		LoginPage loginPage = new LoginPage(driver);
@@ -291,5 +293,146 @@ public class ReportsTest extends TestBase {
 		reportsPage.userBuildReport();
 		assertTrue("Отчет \"Контроль движения колонн\" не построен", reportsPage.isReportBuilds());
 		assertTrue(reportsPage.getBuildReportsName().contains("Контроль движения колонн за период с"));
+	}
+	@BeforeGroups(groups="wst")
+	public void openWstContainer(){
+		ReportsPage reportsPage = new ReportsPage(driver);
+		reportsPage.clickOdhContainer();
+		reportsPage.clickWstContainer();
+	}
+	
+	@Features("Отчеты")
+	@Stories("Отчет \"Статистика получения показаний от мобильных устройств по Отходам\"")
+	@Test(groups="wst")
+	public void reportGpsSignalStatWst() {
+		ReportsPage reportsPage = new ReportsPage(driver);
+		reportsPage.reportGpsSignalStatWstOpen();
+		assertEquals("Статистика получения показаний от мобильных устройств", reportsPage.getBuildReportName());
+		reportsPage.userBuildReport();
+		assertTrue("Отчет \"Статистика получения показаний от мобильных устройств\" не построен", reportsPage.isReportBuilds());
+		assertTrue(reportsPage.getBuildReportsName().contains("Статистика получения показаний от мобильных устройств на"));
+	}
+	
+	@Features("Отчеты")
+	@Stories("Отчет \"Статистика перемещения СТС без назначения на маршрут\"")
+	@Test(groups="wst")
+	public void reportGarbageTrackMove() {
+		ReportsPage reportsPage = new ReportsPage(driver);
+		reportsPage.reportGarbageTrackMoveOpen();
+		assertEquals("Статистика перемещения СТС без назначения на маршрут", reportsPage.getBuildReportName());
+		reportsPage.userBuildReport();
+		assertTrue("Отчет \"Статистика перемещения СТС без назначения на маршрут\" не построен", reportsPage.isReportBuilds());
+		assertTrue(reportsPage.getBuildReportsName().contains("Справка «Статистика перемещения СТС без назначения на маршрут» за период с"));
+	}
+	
+	@BeforeGroups(groups="yard")
+	public void openYardContainer(){
+		ReportsPage reportsPage = new ReportsPage(driver);
+		reportsPage.clickOdhContainer();
+		reportsPage.clickYardContainer();
+	}
+	
+	@Features("Отчеты")
+	@Stories("Отчет \"Выход техники на дворовые территории\"")
+	@Test(groups="yard")
+	public void carAppearanceYardReport() {
+		ReportsPage reportsPage = new ReportsPage(driver);
+		reportsPage.carAppearanceYardReportOpen();
+		assertEquals("Выход техники на дворовые территории", reportsPage.getBuildReportName());
+		reportsPage.userBuildReport();
+		assertTrue("Отчет \"Выход техники на дворовые территории\" не построен", reportsPage.isReportBuilds());
+		assertTrue(reportsPage.getBuildReportsName().contains("Выход техники на дворовые территории за"));
+	}
+	
+	@Features("Отчеты")
+	@Stories("Отчет \"Состояние уборки\"")
+	@Test(groups="yard")
+	public void reportYardClean() {
+		ReportsPage reportsPage = new ReportsPage(driver);
+		reportsPage.reportYardCleanOpen();
+		assertEquals("Состояние уборки", reportsPage.getBuildReportName());
+		reportsPage.userBuildReport();
+		assertTrue("Отчет \"Состояние уборки\" не построен", reportsPage.isReportBuilds());
+		assertTrue(reportsPage.getBuildReportsName().contains("Состояние уборки за"));
+	}
+	
+	@Features("Отчеты")
+	@Stories("Отчет \"Статистика получения показаний от мобильных устройств\"")
+	@Test(groups="yard")
+	public void reportGpsSignalStatYard() {
+		ReportsPage reportsPage = new ReportsPage(driver);
+		reportsPage.reportGpsSignalStatYardOpen();
+		assertEquals("Статистика получения показаний от мобильных устройств", reportsPage.getBuildReportName());
+		reportsPage.userBuildReport();
+		assertTrue("Отчет \"Статистика получения показаний от мобильных устройств\" не построен", reportsPage.isReportBuilds());
+		assertTrue(reportsPage.getBuildReportsName().contains("Статистика получения показаний от мобильных устройств на"));
+	}
+	
+	@Features("Отчеты")
+	@Stories("Отчет \"Статистика перемещения техники по дворам\"")
+	@Test(groups="yard")
+	public void reportStatMoveYard() {
+		ReportsPage reportsPage = new ReportsPage(driver);
+		reportsPage.reportStatMoveYardOpen();
+		assertEquals("Статистика перемещения техники", reportsPage.getBuildReportName());
+		reportsPage.userSetCustomer("ГКУ \"ИС района Сокол\"");
+		reportsPage.userBuildReport();
+		assertTrue("Отчет \"Статистика перемещения техники\" не построен", reportsPage.isReportBuilds());
+		assertTrue(reportsPage.getBuildReportsName().contains("Статистика перемещения техники за период с"));
+	}
+	
+	@BeforeGroups(groups="ozn")
+	public void openOznContainer(){
+		ReportsPage reportsPage = new ReportsPage(driver);
+		reportsPage.clickOdhContainer();
+		reportsPage.clickOznContainer();
+	}
+	
+	@Features("Отчеты")
+	@Stories("Отчет \"Статистика получения показаний от мобильных устройств по ОЗН\"")
+	@Test(groups="ozn")
+	public void reportGpsSignalStatOzn() {
+		ReportsPage reportsPage = new ReportsPage(driver);
+		reportsPage.reportGpsSignalStatOznOpen();
+		assertEquals("Статистика получения показаний от мобильных устройств", reportsPage.getBuildReportName());
+		reportsPage.userBuildReport();
+		assertTrue("Отчет \"Статистика получения показаний от мобильных устройств\" не построен", reportsPage.isReportBuilds());
+		assertTrue(reportsPage.getBuildReportsName().contains("Статистика получения показаний от мобильных устройств на"));
+	}
+	
+	@Features("Отчеты")
+	@Stories("Отчет \"Выполнение основных видов работ по содержанию объектов озеленения\"")
+	@Test(groups="ozn")
+	public void reportOznWorksCompletion() {
+		ReportsPage reportsPage = new ReportsPage(driver);
+		reportsPage.reportOznWorksCompletion();
+		assertEquals("Выполнение основных видов работ по содержанию объектов озеленения", reportsPage.getBuildReportName());
+		reportsPage.userBuildReport();
+		assertTrue("Отчет \"Выполнение основных видов работ по содержанию объектов озеленения\" не построен", reportsPage.isReportBuilds());
+		assertTrue(reportsPage.getBuildReportsName().contains("Выполнение основных видов работ по содержанию объектов озеленения"));
+	}
+	
+	@Features("Отчеты")
+	@Stories("Отчет \"Текущее состояние объектов озеленения\"")
+	@Test(groups="ozn")
+	public void reportCurrentStateOzn() {
+		ReportsPage reportsPage = new ReportsPage(driver);
+		reportsPage.reportCurrentStateOznOpen();
+		assertEquals("Текущее состояние объектов озеленения", reportsPage.getBuildReportName());
+		reportsPage.userBuildReport();
+		assertTrue("Отчет \"Текущее состояние объектов озеленения\" не построен", reportsPage.isReportBuilds());
+		assertTrue(reportsPage.getBuildReportsName().contains("Текущее состояние объектов озеленения"));
+	}
+	
+	@Features("Отчеты")
+	@Stories("Отчет \"Сводный отчет по выходу техники, задействованной на объектах озеленения\"")
+	@Test(groups="yard")
+	public void reportCarOutSummaryOzn() {
+		ReportsPage reportsPage = new ReportsPage(driver);
+		reportsPage.reportCarOutSummaryOznOpen();
+		assertEquals("Сводный отчет по выходу техники, задействованной на объектах озеленения", reportsPage.getBuildReportName());
+		reportsPage.userBuildReport();
+		assertTrue("Отчет \"Сводный отчет по выходу техники, задействованной на объектах озеленения\" не построен", reportsPage.isReportBuilds());
+		assertTrue(reportsPage.getBuildReportsName().contains("Сводный отчет по выходу техники, задействованной на объектах озеленения"));
 	}
 }
