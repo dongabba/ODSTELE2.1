@@ -2,6 +2,7 @@ package ru.fors.odstele.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import ru.yandex.qatools.allure.annotations.Step;
@@ -29,40 +30,22 @@ public class ReportsPage extends Page{
 	By notVisitedOdhReportLocator = By.linkText("Перечень ОДХ, на которые не выходила техника");
 	By reportCarAtWorkPeriodDetailLocator = By.linkText("Техника в работе за период (с детализацией) (сводный)");
 	By reportTrafficLineControlLocator = By.linkText("Контроль движения колонн");
-	By reportReglamentOperationsSummaryLocator = By
-			.linkText("Сводка о выполнении регламентных операций, нарушениях и простое техники");
+	By reportReglamentOperationsSummaryLocator = By.linkText("Сводка о выполнении регламентных операций, нарушениях и простое техники");
 	By buildButton = By.linkText("Построить");
 	By buildReportNameLocator = By.cssSelector("h3");
-	By customerSelectButton = By.xpath("//*[@class='form-table fixed']/tbody/tr[1]/td[4]//a"); // кнопка
-																								// выбора
-																								// Заказчика
-	By customerFieldInCustomerSelectWindow = By.cssSelector("input[name*='nameOrShortNameLike']"); // поле
-																									// для
-																									// ввода
-																									// заказчика
-																									// в
-																									// окне
-																									// выбора
-																									// заказчика
-	By findButton = By.linkText("Поиск"); // кнопка поиск в окне выбора
-											// заказчика
-	By resultInCustonerSelectWindow = By.xpath("//div[@class='modal-window']/table/tbody/tr"); // первая
-																								// строка
-																								// в
-																								// результатах
-																								// поиска
-																								// в
-																								// окне
-																								// выбора
-																								// заказчика
-	By selectCustomerButton = By.linkText("Выбрать найденное"); // кнопка выбора
-																// заказчика в
-																// окне поиска
-	By setPeriodLocator = By.cssSelector("select[name='panel:panel_body:period']"); // выбор
-																					// периода
-																					// для
-																					// сводного
-																					// отчета
+	By buildReportName2ndLineLocator = By.xpath("//h3/text()[2]"); //вторая строка в шапке отчета
+	By buildReportName3rdLineLocator = By.xpath("//h3/text()[3]"); //третья строка в шапке отчета
+	By customerSelectButton = By.xpath("//*[@class='form-table fixed']/tbody/tr[1]/td[4]//a"); //кнопка выбора Заказчика
+	By customerDeleteButton = By.xpath("//*[@class='form-table fixed']/tbody/tr[1]/td[4]//a[1]"); //кнопка очистки поля Заказчик
+	By contractorSelectButton = By.xpath("//*[@class='form-table fixed']/tbody/tr[2]/td[4]//a"); //кнопка выбора Подрядчика
+	By contractorDeleteButton = By.xpath("//*[@class='form-table fixed']/tbody/tr[2]/td[4]//a[1]"); //кнопка Очистки поля Подрядчик
+	By providerSelectButton = By.xpath("//*[@class='form-table fixed']/tbody/tr[3]/td[4]//a"); //кнопка выбора Поcтавщика
+	By providerDeleteButton = By.xpath("//*[@class='form-table fixed']/tbody/tr[3]/td[4]//a[1]"); //кнопка очистки Поcтавщика
+	By customerFieldInCustomerSelectWindow = By.cssSelector("input[name*='nameOrShortNameLike']"); // поле для ввода заказчика в окне выбора заказчика
+	By findButton = By.linkText("Поиск"); // кнопка поиск в окне выбора заказчика
+	By resultInCustonerSelectWindow = By.xpath("//div[@class='modal-window']/table/tbody/tr"); // первая строка в результатах поиска в окне выбора заказчика
+	By selectCustomerButton = By.linkText("Выбрать найденное"); // кнопка выбора заказчика в окне поиска
+	By setPeriodLocator = By.cssSelector("select[name='panel:panel_body:period']"); // выбор периода для сводного отчета
 	By reportGpsSignalStatWstLocator = By.linkText("Статистика получения показаний от мобильных устройств"); //Отходы
 	By reportGarbageTrackMoveLocator = By.linkText("Статистика перемещения СТС без назначения на маршрут"); //Отходы
 	By carAppearanceYardReportLocator = By.linkText("Выход техники на дворовые территории"); //Дворы
@@ -93,6 +76,38 @@ public class ReportsPage extends Page{
 	@Step("Проверяем, что страница с отчетом загрузилась")
 	public String getBuildReportName() {
 		return driver.findElement(reportName).getText();
+	}
+	
+	public boolean findContractorInReportName() {
+		return driver.findElement(By.xpath("//h3[contains(.,\"Подрядчик\")]")) != null;
+	}
+	
+	public boolean findCustomerInReportName() {
+		return driver.findElement(By.xpath("//h3[contains(.,\"Заказчик\")]")) != null;
+	}
+	
+	public boolean findProviderInReportName() {
+		return driver.findElement(By.xpath("//h3[contains(.,\"Поставщик телеметрических услуг\")]")) != null;
+	}
+	
+	public boolean findWstContrInReportName() {
+		return driver.findElement(By.xpath("//h3[contains(.,\"Транспортировщик\")]")) != null;
+	}
+	
+	public boolean findWstCustInReportName() {
+		return driver.findElement(By.xpath("//h3[contains(.,\"Образователь\")]")) != null;
+	}
+	
+	public boolean findWstOwnerInReportName() {
+		return driver.findElement(By.xpath("//h3[contains(.,\"Владелец техники\")]")) != null;
+	}
+	
+	public boolean findYardContrInReportName() {
+		return driver.findElement(By.xpath("//h3[contains(.,\"Подрядная организация\")]")) != null;
+	}
+	
+	public boolean findYardCustInReportName() {
+		return driver.findElement(By.xpath("//h3[contains(.,\"Балансодержатель\")]")) != null;
 	}
 
 	@Step("Открываем отчет \"Техника в работе\"")
@@ -196,19 +211,50 @@ public class ReportsPage extends Page{
 	public String getBuildReportsName() {
 		return driver.findElement(buildReportNameLocator).getText();
 	}
-
-	@Step("Выбираем заказчика {0}")
-	public void userSetCustomer(String custName) {
-		driver.findElement(customerSelectButton).click();
-		driver.findElement(customerFieldInCustomerSelectWindow).click();
-		driver.findElement(customerFieldInCustomerSelectWindow).sendKeys(custName);
-		driver.findElement(findButton).click();
+	public void userSetValue(By element, String value){
+		click(element);
+		click(customerFieldInCustomerSelectWindow);
+		type(customerFieldInCustomerSelectWindow, value);
+		click(findButton);
 		waitForAjaxIndicatorOff(driver, 6);
-		driver.findElement(resultInCustonerSelectWindow).click();
+		click(resultInCustonerSelectWindow);
 		waitForAjaxIndicatorOff(driver, 6);
-		driver.findElement(selectCustomerButton).click();
+		click(selectCustomerButton);
 		waitForAjaxIndicatorOff(driver, 6);
 	}
+	
+	@Step("Выбираем заказчика {0}")
+	public void userSetCustomer(String custName) {
+		userSetValue(customerSelectButton, custName);
+	}
+	
+	@Step("Выбираем подрядчика {0}")
+	public void userSetContractor(String contrName) {
+		userSetValue(contractorSelectButton, contrName);
+	}
+	
+	@Step("Выбираем поставщика {0}")
+	public void userSetProvider(String providerName) {
+		userSetValue(providerSelectButton, providerName);
+	}
+	
+	@Step("Очищаем поле заказчик")
+	public void clearCustomerField(){
+		click(customerDeleteButton);
+		waitForAjaxIndicatorOff(driver, 6);
+	}
+	@Step("Очищаем поле подрядчик")
+	public void clearContractorField(){
+		click(contractorDeleteButton);
+		waitForAjaxIndicatorOff(driver, 6);
+	}
+	
+	@Step("Очищаем поле поставщик")
+	public void clearProviderField(){
+		click(providerDeleteButton);
+		waitForAjaxIndicatorOff(driver, 6);
+	}
+	
 	@Step("Открываем отчет \"Сводка выхода техники на ОДХ\"")
 	public void reportCarOutTestOpen() {
 		click(reportCarOutLocacator);
@@ -289,4 +335,6 @@ public class ReportsPage extends Page{
 	public void reportGpsSignal4ProviderOpen() {
 		click(reportGpsSignal4ProviderLocator);
 	}
+	
+	
 }

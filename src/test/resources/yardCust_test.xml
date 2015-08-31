@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="roleYardCustomer_test">
+		<parameter name="username" value="yard_test" />
+		<parameter name="password" value="yard_test" />
+		<test name = "UserLoginAsYardCustomer">
+		<parameter name="role" value="Балансодержатель дворовой территории" />
+		<classes>
+			<class name="ru.fors.odstele.tests.LoginTests"/>
+		</classes>
+		</test>
+		<test name = "YardCustomerReportsTest">
+		<parameter name="contrName" value="Фортуна" />
+		<parameter name="providerName" value="Fora Solutions" />
+		<classes>
+			<class name="ru.fors.odstele.tests.ReportsYardsTest"/>
+			<methods>
+        		<exclude name=".*" />
+        		<include name="carAppearanceYardReportCust"/>
+        		<include name="reportYardCleanCust"/>
+        		<include name="reportGpsSignalStatYardCust"/>
+        		<include name="reportStatMoveYardCust"/>
+        	</methods>
+		</classes>
+		</test>
+</suite>

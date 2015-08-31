@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="roleDepartmentTests_test">
-		<parameter name="username" value="dept_test" />
-		<parameter name="password" value="dept_test" />
-		<parameter name="role" value="Департамент общий" />
-		<test name = "UserLoginAsDepartment">
+<suite name="rolePrefectTests_test">
+		<parameter name="username" value="WST_PREF" />
+		<parameter name="password" value="WST_PREF" />
+		<parameter name="role" value="Префектура" />
+		<test name = "UserLoginAsPrefect">
 		<classes>
 			<class name="ru.fors.odstele.tests.LoginTests"/>
 		</classes>
 		</test>
-		<test name = "ReportsOdhTestByDepartment">
-		<parameter name="contrName" value="АвД СВАО" />
-		<parameter name="custName" value="АвД СВАО" />
+		<test name = "ReportsOdhTestByPrefect">
+		<parameter name="contrName" value="ДЗ ЖКХиБ ВАО" />
+		<parameter name="custName" value="ДЗ ЖКХиБ ВАО" />
 		<parameter name="providerName" value="Fora Solutions" />
 		<classes>
 			<class name="ru.fors.odstele.tests.ReportsDeptTest"/>
@@ -37,7 +37,7 @@
       		</methods>
 		</classes>
 		</test>
-		<test name = "ReportsWstTestByDepartment">
+		<test name = "ReportsWstTestByPrefect">
 		<parameter name="contrName" value="Экотехпром" />
 		<parameter name="custName" value="Дом-Мастер" />
 		<parameter name="providerName" value="Fora Solutions" />
@@ -45,14 +45,13 @@
 			<class name="ru.fors.odstele.tests.ReportsDeptTest"/>
 			<methods>
         		<exclude name=".*" />
-        		<include name="report1GarbageTrackMove"/>
         		<include name="report2GpsSignalStatWst"/>
        		</methods>
 		</classes>
 		</test>
-		<test name = "ReportsYardTestByDepartment">
-		<parameter name="contrName" value="Аквилон" />
-		<parameter name="custName" value="ИС района Сокол" />
+		<test name = "ReportsYardTestByPrefect">
+		<parameter name="contrName" value="Фортуна" />
+		<parameter name="custName" value="Жилищник Восточное Измайлово" />
 		<parameter name="providerName" value="Fora Solutions" />
 		<classes>
 			<class name="ru.fors.odstele.tests.ReportsDeptTest"/>
@@ -65,7 +64,7 @@
       		</methods>
 		</classes>
 		</test>
-		<test name = "ReportsOznTestByDepartment">
+		<test name = "ReportsOznTestByPrefect">
 		<classes>
 			<class name="ru.fors.odstele.tests.ReportsDeptTest"/>
 			<methods>

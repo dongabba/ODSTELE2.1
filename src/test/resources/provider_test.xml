@@ -1,12 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="roleProviderTests_test">
-		<test name = "UserLoginAsProvider">
 		<parameter name="username" value="fors_test" />
 		<parameter name="password" value="fors_test" />
+		<test name = "UserLoginAsProvider">
 		<parameter name="role" value="Поcтавщик телеметрических услуг" />
 		<classes>
 			<class name="ru.fors.odstele.tests.LoginTests"/>
 		</classes>
-		</test>>
+		</test>
+		<test name = "ReportsOdhTestByProvider">
+		<parameter name="custName" value="Иванов" />
+		<parameter name="contrName" value="ДЗ ЖКХиБ ВАО" />
+		<parameter name="providerName" value="Fora Solutions" />
+		<classes>
+			<class name="ru.fors.odstele.tests.ReportsDeptTest"/>
+			<methods>
+        		<exclude name=".*" />
+        		<include name="reportCarAtWorkPeriod"/>
+        		<include name="reportCarAtWork"/>
+        		<include name="reportCarOutPeriod"/>
+        		<include name="reportStatsMove"/>
+        		<include name="reportViolation"/>
+        		<include name="reportNotVisitedOdh"/>
+        		<include name="reportTrafficLineControl"/>
+       		</methods>
+		</classes>
+		</test>
+		<test name = "ReportsYardTestByProvider">
+		<parameter name="contrName" value="Аквилон" />
+		<parameter name="custName" value="ИС района Сокол" />
+		<parameter name="providerName" value="Fora Solutions" />
+		<classes>
+			<class name="ru.fors.odstele.tests.ReportsDeptTest"/>
+			<methods>
+        		<exclude name=".*" />
+        		<include name="reportStatMoveYard"/>
+      		</methods>
+      	</classes>
+      	</test>
+      	<test name = "ProviderReport">
+		<classes>
+			<class name="ru.fors.odstele.tests.ReportsDeptTest"/>
+			<methods>
+        		<exclude name=".*" />
+        		<include name="reportGpsSignal4Provider"/>
+      		</methods>
+      	</classes>
+      	</test>
 </suite>

@@ -10,15 +10,10 @@
 		</classes>
 		</test>
 		<test name = "ReportsTestByCustomer">
+		<parameter name="contrName" value="АвД СВАО" />
+		<parameter name="providerName" value="Fora Solutions" />
 		<classes>
-			<class name="ru.fors.odstele.tests.ReportsTest"/>
-			<methods>
-        		<exclude name="reportSnowRemovalAnalysis"/>
-        		<exclude name="reportSnowRemovalDetail"/>
-        		<exclude name="reportViolation"/>
-        		<exclude name="reportStatsMove"/>
-        		<exclude name="reportTrafficLineControl"/>
-      		</methods>
+			<class name="ru.fors.odstele.tests.ReportsCustOdhTest"/>
 		</classes>
 		</test>
 </suite>

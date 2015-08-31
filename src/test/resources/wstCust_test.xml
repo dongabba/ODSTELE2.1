@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="roleWstCustomer_test">
+		<parameter name="username" value="WST_OWNER" />
+		<parameter name="password" value="WST_OWNER" />
+		<test name = "UserLoginAsWstCustomer">
+		<parameter name="role" value="Образователь отходов" />
+		<classes>
+			<class name="ru.fors.odstele.tests.LoginTests"/>
+		</classes>
+		</test>
+		<test name = "WstCustReportsTest">
+		<parameter name="contrName" value="Экотехпром" />
+		<parameter name="providerName" value="Fora Solutions" />
+		<classes>
+			<class name="ru.fors.odstele.tests.ReportsDeptTest"/>
+			<methods>
+        		<exclude name=".*" />
+        		<include name="reportGpsSignalStatsWstCust"/>
+        	</methods>
+		</classes>
+		</test>
+</suite>

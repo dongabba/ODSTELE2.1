@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="roleDepartmentTests_test">
+		<parameter name="username" value="dept_test" />
+		<parameter name="password" value="dept_test" />
+		<parameter name="role" value="Департамент общий" />
+		<test name = "ReportsOdhTestByDepartment">
+		<parameter name="contrName" value="Экотехпром" />
+		<parameter name="custName" value="Дом-Мастер" />
+		<parameter name="providerName" value="Fora Solutions" />
+		<classes>
+			<class name="ru.fors.odstele.tests.ReportsDeptTest"/>
+			<methods>
+        		<exclude name=".*" />
+        		<include name="reportCarAtWorkPeriodDetail"/>
+      		</methods>
+		</classes>
+		</test>
+</suite>

@@ -5,4 +5,8 @@
 		<suite-file path="cust_test.xml" />
 		<suite-file path="contr_test.xml" />
 		<suite-file path="provider_test.xml" />
+		<suite-file path="wstContr_test.xml" />
+		<suite-file path="wstCust_test.xml" />
+		<suite-file path="yardContr_test.xml" />
+		<suite-file path="yardCust_test.xml" />
 </suite>

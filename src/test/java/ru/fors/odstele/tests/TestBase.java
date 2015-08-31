@@ -22,7 +22,9 @@ public class TestBase {
 		browser.setName(PropertyLoader.loadProperty("browser.name"));
 		driver = WebDriverFactory.getInstance(browser);
 		driver.manage().timeouts().implicitlyWait(Long.parseLong(PropertyLoader.loadProperty("imp.wait")), TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 		driver.get(baseUrl);
+		
 	}
 	
 	
