@@ -4,6 +4,8 @@
 		<parameter name="username" value="dept_test" />
 		<parameter name="password" value="dept_test" />
 		<parameter name="role" value="Департамент общий" />
+		<parameter name="dateFrom" value="04.09.2015" />
+		<parameter name="dateTo" value="04.09.2015" />
 		<test name = "UserLoginAsDepartment">
 		<classes>
 			<class name="ru.fors.odstele.tests.LoginTests"/>

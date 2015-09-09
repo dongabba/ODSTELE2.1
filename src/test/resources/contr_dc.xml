@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="roleContractorTests_test">
-		<parameter name="username" value="aga_test" />
-		<parameter name="password" value="aga_test" />
-		<parameter name="role" value="Подрядчик по содержанию ОДХ" />
+		<parameter name="username" value="KRUGLOV" />
+		<parameter name="password" value="KRUGLOV" />
 		<parameter name="dateFrom" value="04.09.2015" />
 		<parameter name="dateTo" value="04.09.2015" />
+		<parameter name="role" value="Подрядчик по содержанию ОДХ" />
 		<test name = "UserLoginAsContractor">
 		<classes>
 			<class name="ru.fors.odstele.tests.LoginTests"/>
 		</classes>
 		</test>
 		<test name = "ReportsTestByContractor">
-		<parameter name="custName" value="АвД СВАО" />
-		<parameter name="providerName" value="Fora Solutions" />>
+		<parameter name="custName" value="АвД" />
+		<parameter name="providerName" value="ЕТО" />>
 		<classes>
 			<class name="ru.fors.odstele.tests.ReportsContrOdhTest"/>
 		</classes>

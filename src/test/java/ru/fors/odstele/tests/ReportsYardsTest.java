@@ -34,12 +34,13 @@ public class ReportsYardsTest extends TestBase {
 	
 	@Features("Отчеты")
 	@Stories("Роль Балансодержатель, Отчет \"Выход техники на дворовые территории\"")
-	@Parameters({"contrName"})
+	@Parameters({"contrName", "dateFrom", "dateTo"})
 	@Test
-	public void carAppearanceYardReportCust(String contrName) {
+	public void carAppearanceYardReportCust(String contrName, String dateFrom, String dateTo) {
 		ReportsPage reportsPage = new ReportsPage(driver);
 		reportsPage.carAppearanceYardReportOpen();
 		assertEquals("Выход техники на дворовые территории", reportsPage.getBuildReportName());
+		reportsPage.userSetDate(dateFrom, dateTo);
 		reportsPage.userBuildReport();
 		assertTrue("Отчет \"Выход техники на дворовые территории\" не построен", reportsPage.isReportBuilds());
 		assertTrue(reportsPage.getBuildReportsName().contains("Выход техники на дворовые территории за"));
@@ -51,12 +52,13 @@ public class ReportsYardsTest extends TestBase {
 	
 	@Features("Отчеты")
 	@Stories("Роль Балансодержатель, Отчет \"Состояние уборки\"")
-	@Parameters({"contrName"})
+	@Parameters({"contrName", "dateFrom", "dateTo"})
 	@Test
-	public void reportYardCleanCust(String contrName) {
+	public void reportYardCleanCust(String contrName, String dateFrom, String dateTo) {
 		ReportsPage reportsPage = new ReportsPage(driver);
 		reportsPage.reportYardCleanOpen();
 		assertEquals("Состояние уборки", reportsPage.getBuildReportName());
+		reportsPage.userSetDate(dateFrom, dateTo);
 		reportsPage.userBuildReport();
 		assertTrue("Отчет \"Состояние уборки\" не построен", reportsPage.isReportBuilds());
 		assertTrue(reportsPage.getBuildReportsName().contains("Состояние уборки за"));
@@ -89,12 +91,13 @@ public class ReportsYardsTest extends TestBase {
 	
 	@Features("Отчеты")
 	@Stories("Роль Балансодержатель, Отчет \"Статистика перемещения техники по дворам\"")
-	@Parameters({"contrName"})
+	@Parameters({"contrName", "dateFrom", "dateTo"})
 	@Test
-	public void reportStatMoveYardCust(String contrName) {
+	public void reportStatMoveYardCust(String contrName, String dateFrom, String dateTo) {
 		ReportsPage reportsPage = new ReportsPage(driver);
 		reportsPage.reportStatMoveYardOpen();
 		assertEquals("Статистика перемещения техники", reportsPage.getBuildReportName());
+		reportsPage.userSetDate(dateFrom, dateTo);
 		reportsPage.userBuildReport();
 		assertTrue("Отчет \"Статистика перемещения техники\" не построен", reportsPage.isReportBuilds());
 		assertTrue(reportsPage.getBuildReportsName().contains("Статистика перемещения техники за период с"));
@@ -106,36 +109,38 @@ public class ReportsYardsTest extends TestBase {
 	
 	@Features("Отчеты")
 	@Stories("Роль Подрядчик ДТ, Отчет \"Выход техники на дворовые территории\"")
-	//@Parameters({"custName"})
+	@Parameters({"custName", "dateFrom", "dateTo"})
 	@Test
-	public void carAppearanceYardReportContr() {
+	public void carAppearanceYardReportContr(String dateFrom, String dateTo, String custName) {
 		ReportsPage reportsPage = new ReportsPage(driver);
 		reportsPage.carAppearanceYardReportOpen();
 		assertEquals("Выход техники на дворовые территории", reportsPage.getBuildReportName());
+		reportsPage.userSetDate(dateFrom, dateTo);
 		reportsPage.userBuildReport();
 		assertTrue("Отчет \"Выход техники на дворовые территории\" не построен", reportsPage.isReportBuilds());
 		assertTrue(reportsPage.getBuildReportsName().contains("Выход техники на дворовые территории за"));
-		//reportsPage.userSetCustomer(custName);
-		//reportsPage.userBuildReport();
-		//assertTrue("Отчет \"Выход техники на дворовые территории\" не построен", reportsPage.isReportBuilds());
-		//assertTrue(reportsPage.findYardCustInReportName());
+		reportsPage.userSetCustomer(custName);
+		reportsPage.userBuildReport();
+		assertTrue("Отчет \"Выход техники на дворовые территории\" не построен", reportsPage.isReportBuilds());
+		assertTrue(reportsPage.findYardCustInReportName());
 	}
 	
 	@Features("Отчеты")
 	@Stories("Роль Подрядчик ДТ, Отчет \"Состояние уборки\"")
-	//@Parameters({"custName"})
+	@Parameters({"custName", "dateFrom", "dateTo"})
 	@Test
-	public void reportYardCleanContr() {
+	public void reportYardCleanContr(String custName, String dateFrom, String dateTo) {
 		ReportsPage reportsPage = new ReportsPage(driver);
 		reportsPage.reportYardCleanOpen();
 		assertEquals("Состояние уборки", reportsPage.getBuildReportName());
+		reportsPage.userSetDate(dateFrom, dateTo);
 		reportsPage.userBuildReport();
 		assertTrue("Отчет \"Состояние уборки\" не построен", reportsPage.isReportBuilds());
 		assertTrue(reportsPage.getBuildReportsName().contains("Состояние уборки за"));
-		//reportsPage.userSetCustomer(custName);
-		//reportsPage.userBuildReport();
-		//assertTrue("Отчет \"Состояние уборки\" не построен", reportsPage.isReportBuilds());
-		//assertTrue(reportsPage.findYardCustInReportName());
+		reportsPage.userSetCustomer(custName);
+		reportsPage.userBuildReport();
+		assertTrue("Отчет \"Состояние уборки\" не построен", reportsPage.isReportBuilds());
+		assertTrue(reportsPage.findYardCustInReportName());
 	}
 	
 	@Features("Отчеты")
@@ -161,15 +166,16 @@ public class ReportsYardsTest extends TestBase {
 	
 	@Features("Отчеты")
 	@Stories("Отчет \"Статистика перемещения техники по дворам\"")
-	//@Parameters({"custName"})
+	@Parameters({"custName", "dateFrom", "dateTo"})
 	@Test
-	public void reportStatMoveYardContr() {
+	public void reportStatMoveYardContr(String custName, String dateFrom, String dateTo) {
 		ReportsPage reportsPage = new ReportsPage(driver);
 		reportsPage.reportStatMoveYardOpen();
 		assertEquals("Статистика перемещения техники", reportsPage.getBuildReportName());
-		//reportsPage.userSetCustomer(custName);
-		//reportsPage.userBuildReport();
-		//assertTrue("Отчет \"Статистика перемещения техники\" не построен", reportsPage.isReportBuilds());
-		//assertTrue(reportsPage.getBuildReportsName().contains("Статистика перемещения техники за период с"));
+		reportsPage.userSetDate(dateFrom, dateTo);
+		reportsPage.userSetCustomer(custName);
+		reportsPage.userBuildReport();
+		assertTrue("Отчет \"Статистика перемещения техники\" не построен", reportsPage.isReportBuilds());
+		assertTrue(reportsPage.getBuildReportsName().contains("Статистика перемещения техники за период с"));
 	}
 }

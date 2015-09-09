@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="rolePrefectTests_test">
-		<parameter name="username" value="WST_PREF" />
-		<parameter name="password" value="WST_PREF" />
-		<parameter name="role" value="Префектура" />
+<suite name="roleDepartmentTests_test">
+		<parameter name="username" value="fors_dept" />
+		<parameter name="password" value="fors_dept" />
+		<parameter name="role" value="Департамент общий" />
 		<parameter name="dateFrom" value="04.09.2015" />
 		<parameter name="dateTo" value="04.09.2015" />
-		<test name = "UserLoginAsPrefect">
+		<test name = "UserLoginAsDepartment">
 		<classes>
 			<class name="ru.fors.odstele.tests.LoginTests"/>
 		</classes>
 		</test>
-		<test name = "ReportsOdhTestByPrefect">
-		<parameter name="contrName" value="ДЗ ЖКХиБ ВАО" />
-		<parameter name="custName" value="ДЗ ЖКХиБ ВАО" />
-		<parameter name="providerName" value="Fora Solutions" />
+		<test name = "ReportsOdhTestByDepartment">
+		<parameter name="contrName" value="АвД СВАО" />
+		<parameter name="custName" value="АвД СВАО" />
+		<parameter name="providerName" value="ЕТО" />
 		<classes>
 			<class name="ru.fors.odstele.tests.ReportsDeptTest"/>
 			<methods>
@@ -39,22 +39,23 @@
       		</methods>
 		</classes>
 		</test>
-		<test name = "ReportsWstTestByPrefect">
-		<parameter name="contrName" value="Экотехпром" />
-		<parameter name="custName" value="Дом-Мастер" />
-		<parameter name="providerName" value="Fora Solutions" />
+		<test name = "ReportsWstTestByDepartment">
+		<parameter name="contrName" value="Хартия" />
+		<parameter name="custName" value="Мосэкопром" />
+		<parameter name="providerName" value="ЕТО" />
 		<classes>
 			<class name="ru.fors.odstele.tests.ReportsDeptTest"/>
 			<methods>
         		<exclude name=".*" />
+        		<include name="report1GarbageTrackMove"/>
         		<include name="report2GpsSignalStatWst"/>
        		</methods>
 		</classes>
 		</test>
-		<test name = "ReportsYardTestByPrefect">
-		<parameter name="contrName" value="Фортуна" />
-		<parameter name="custName" value="Жилищник Восточное Измайлово" />
-		<parameter name="providerName" value="Fora Solutions" />
+		<test name = "ReportsYardTestByDepartment">
+		<parameter name="contrName" value="Северное Измайлово" />
+		<parameter name="custName" value="Северное Измайлово" />
+		<parameter name="providerName" value="ЕТО" />
 		<classes>
 			<class name="ru.fors.odstele.tests.ReportsDeptTest"/>
 			<methods>
@@ -66,7 +67,7 @@
       		</methods>
 		</classes>
 		</test>
-		<test name = "ReportsOznTestByPrefect">
+		<test name = "ReportsOznTestByDepartment">
 		<classes>
 			<class name="ru.fors.odstele.tests.ReportsDeptTest"/>
 			<methods>

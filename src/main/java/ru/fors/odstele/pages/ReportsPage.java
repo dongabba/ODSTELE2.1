@@ -62,6 +62,8 @@ public class ReportsPage extends Page{
 	By yardContainerLocator = By.xpath("//div[3]/h4/span"); //контейнер Дворы
 	By oznContainerLocator = By.xpath("//div[4]/h4/span"); //контейнер ОЗН
 	By allContainerLocator = By.xpath("//div[5]/h4/span"); //контейнер Общее
+	By dateFromField = By.cssSelector("name*=\"dateFrom\""); // дата С
+	By dateToField = By.cssSelector("name*=\"dateTo\""); // дата По
 
 
 	public ReportsPage(WebDriver driver) {
@@ -336,5 +338,12 @@ public class ReportsPage extends Page{
 		click(reportGpsSignal4ProviderLocator);
 	}
 	
+	@Step("Устанавливаем Дата с, Дата по")
+	public void userSetDate(String dateFrom, String dateTo){
+		click(dateFromField);
+		type(dateFromField, dateFrom);
+		click(dateToField);
+		type(dateToField, dateTo);
+	}
 	
 }

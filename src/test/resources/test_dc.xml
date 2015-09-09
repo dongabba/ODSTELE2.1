@@ -3,9 +3,9 @@
 <suite name="roleDepartmentTests_test">
 		<parameter name="username" value="dept_test" />
 		<parameter name="password" value="dept_test" />
-		<parameter name="role" value="Департамент общий" />
 		<parameter name="dateFrom" value="04.09.2015" />
 		<parameter name="dateTo" value="04.09.2015" />
+		<parameter name="role" value="Департамент общий" />
 		<test name = "ReportsOdhTestByDepartment">
 		<parameter name="contrName" value="Экотехпром" />
 		<parameter name="custName" value="Дом-Мастер" />
